@@ -1,5 +1,7 @@
 const menuToggle = document.getElementById('menuToggle');
 const navLinksContainer = document.getElementById('navLinks');
+const sections = document.querySelectorAll("section");
+const navItems = document.querySelectorAll(".nav-links a");
 
 function closeMenu() {
   navLinksContainer.classList.remove('open');
@@ -17,16 +19,12 @@ navLinksContainer.querySelectorAll('a').forEach((link) => {
   link.addEventListener('click', closeMenu);
 });
 
-const sections = document.querySelectorAll("section");
-const navItems = document.querySelectorAll(".nav-links a");
-
 function makeActive() {
   let index = sections.length;
 
   if ((window.innerHeight + Math.round(window.scrollY)) >= document.body.offsetHeight - 10) {
-   
     navItems.forEach((a) => a.classList.remove("active"));
-    if(navItems.length > 0) navItems[navItems.length - 1].classList.add("active");
+    if (navItems.length > 0) navItems[navItems.length - 1].classList.add("active");
     return;
   }
 
